@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorBg">
+
+    <View
+        android:id="@+id/mask"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        android:elevation="13dp"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBlue"
+        android:elevation="13dp"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/titleText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:text="@string/userInfoTitle"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textColorHighlight="@color/white"
+        android:textColorHint="@color/white"
+        android:textColorLink="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:translationZ="14dp"
+        app:layout_constraintBottom_toBottomOf="@+id/mask"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/mask"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/backBtn"
+        android:layout_width="27dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="15dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        android:src="@drawable/icon_action_back"
+        android:translationZ="14dp"
+        app:layout_constraintBottom_toBottomOf="@+id/mask"
+        app:layout_constraintStart_toStartOf="@+id/mask"
+        app:layout_constraintTop_toTopOf="@+id/mask"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/copyRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/copyRight"
+        android:textColor="@color/colorText"
+        android:textColorHighlight="@color/colorText"
+        android:textColorHint="@color/colorText"
+        android:textColorLink="@color/colorText"
+        android:textCursorDrawable="@color/colorText"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <RelativeLayout
+        android:id="@+id/relative"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/copyRight"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar1"
+        app:layout_constraintVertical_bias="0.0">
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

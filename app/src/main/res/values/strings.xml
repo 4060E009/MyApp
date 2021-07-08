@@ -1,0 +1,19 @@
+<resources>
+<!--    <string name="app_name">My Application2</string>-->
+    <string name="name1">google</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="controlBtn">呼叫電梯</string>
+    <string name="app_name">電梯叫車好幫手</string>
+    <string name="controlTitle">請選擇您欲前往的樓層</string>
+    <string name="dialog_calling">叫車中 請稍後...</string>
+    <string name="dialog_success">叫車成功</string>
+    <string name="dialog_loading">重新連線中</string>
+    <string name="dialog_error">連線發生問題 請再試一次</string>
+    <string name="errorTitle">連線發生問題</string>
+    <string name="errorSubTitle">因安全性考量，您目前所在位置訊號可能會受到干擾或減弱，請您站立於電梯口2公尺內並使用社區Wi-Fi網路，再試一次吧!</string>
+    <string name="reconnect">重新連線</string>
+    <string name="userInfoTitle">帳戶資訊</string>
+    <string name="copyRight">Powered by DUCTECH</string>
+
+</resources>
