@@ -5,6 +5,7 @@ import android.content.Context
 import android.util.Log
 import com.example.myapplication2.CubeFragment
 import com.example.myapplication2.MainActivity
+import com.example.myapplication2.cube
 import com.example.myapplication2.floorArray
 import kotlinx.android.synthetic.main.activity_main.*
 import org.eclipse.paho.android.service.MqttAndroidClient
@@ -59,7 +60,7 @@ class MQTTmanager(val context: Context, val activity: Activity) {
                 Log.d("messageArrived", message.toString())
                 val data = message.toString().split(",") as ArrayList<String>
                 floorArray = data
-                (activity as CubeFragment).updateUI()
+                cube.updateUI()
             }
 
             override fun connectionLost(cause: Throwable?) {

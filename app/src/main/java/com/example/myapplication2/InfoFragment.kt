@@ -1,7 +1,9 @@
 package com.example.myapplication2
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Bundle
+import android.os.Vibrator
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -33,8 +35,9 @@ class InfoFragment: Fragment() {
         }
 
         backBtn.setOnClickListener {
-            val cube_fragment = CubeFragment()
-            change(fragment = cube_fragment)
+            val viberator = activity?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+            viberator.vibrate(40)
+            change(fragment = cube)
         }
     }
 

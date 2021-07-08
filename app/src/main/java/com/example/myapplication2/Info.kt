@@ -3,10 +3,11 @@ package com.example.myapplication2
 import android.content.Context
 import android.content.res.Resources
 import android.graphics.Color
-import android.os.Bundle
+import android.os.Build
+import android.os.VibrationEffect
+import android.os.Vibrator
 import android.util.Log
 import android.view.Gravity
-import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
@@ -41,6 +42,7 @@ class Info(private val  res : Resources, rel : RelativeLayout, context: Context)
     val names = arrayOf("帳號", "密碼", "IP")
 
     init {
+
         val cardRel = RelativeLayout(context)
         cardRel.id = View.generateViewId()
         cardRel.background = res.getDrawable(R.drawable.text,null)
@@ -155,5 +157,4 @@ class Info(private val  res : Resources, rel : RelativeLayout, context: Context)
             relID++
         }
     }
-
 }
