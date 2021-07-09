@@ -150,6 +150,7 @@ class CubePage(private val relative:RelativeLayout,val resources: Resources,val 
                     it4 -> cubeStateOff(shadowV = it1, contentV = it2, innerV = it3, imgV = it4) } } } }
             cubeStateOn(shadowV = shadowV, contentV = contentV, innerV = innerV, imgV = imgV)
             this.shadowV = shadowV; this.contentV = contentV; this.innerV = innerV; this.imgV = imgV
+//            cube.checkControlBtnStatus()
         }
     }
 

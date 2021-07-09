@@ -4,14 +4,18 @@ import MQTT.MQTTmanager
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.res.Resources
 import android.os.Bundle
 import android.os.Vibrator
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RelativeLayout
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import kotlinx.android.synthetic.main.cubecontro_fragment.*
 
+//var updateUI : CubePage? = null
 
 class CubeFragment: Fragment(){
 
@@ -45,7 +49,22 @@ class CubeFragment: Fragment(){
 
         //發送控制的監聽動作
         controlBtn.setOnClickListener {
-            mqtt.publish(topic = "control", message = "duc123,duc123,123,10,1")
+            val viberator = activity?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+            viberator.vibrate(40)
+//            mqtt.publish(topic = "control", message = "duc123,duc123,123,10,1")
+            if (errorRel.visibility == View.VISIBLE){
+                controlBtn.setText("重新連線")
+                controlBtn.background = resources.getDrawable(R.drawable.bg_round_button,null)
+            } else if (controlMainRel.visibility == View.VISIBLE){
+                controlBtn.setText("呼叫電梯")
+                if (floor != null){
+                    controlBtn.background = resources.getDrawable(R.drawable.bg_round_button,null)
+                } else{
+                    controlBtn.background = resources.getDrawable(R.drawable.bg_round_button_rest,null)
+                }
+            }
+            dialog?.startCallingDialog()
+            dialog?.successStatus()
         }
 
         //重新整理的監聽動作
@@ -70,12 +89,33 @@ class CubeFragment: Fragment(){
         // 更新UI
         activity?.runOnUiThread {
             relative.removeAllViews() //更新前清除
+//            errorRel.removeAllViews()
+            ErrorPage(
+                relative = relative,
+                activity = FragmentActivity(),
+                resources = Resources.getSystem(),
+                context = context
+            )
             CubePage(
                 relative = relative,
                 resources = resources,
                 context = context!!,
                 activity = activity!!
             )
+            if (floorArray.count() > 0){
+                controlMainRel.visibility = View.VISIBLE
+                errorRel.visibility = View.GONE
+            }
+            else{
+                controlMainRel.visibility = View.GONE
+                errorRel.visibility = View.VISIBLE
+            }
+            updateUI()
         }
     }
+
+//    @SuppressLint("ResourceType")
+//    fun controBtn(){
+//
+//    }
 }
