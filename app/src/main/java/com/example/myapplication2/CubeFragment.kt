@@ -92,7 +92,7 @@ class CubeFragment: Fragment(){
 //            errorRel.removeAllViews()
             ErrorPage(
                 relative = relative,
-                activity = FragmentActivity(),
+                activity = activity,
                 resources = Resources.getSystem(),
                 context = context
             )
