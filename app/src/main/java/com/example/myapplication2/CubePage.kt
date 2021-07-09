@@ -15,6 +15,7 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.RelativeLayout
+import org.eclipse.paho.android.service.BuildConfig
 
 var floorArray: ArrayList<String> =
     arrayListOf()
