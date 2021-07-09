@@ -1,7 +1,6 @@
 package com.example.myapplication2
 
 import MQTT.MQTTmanager
-
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.Resources
@@ -14,8 +13,6 @@ import android.widget.RelativeLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import kotlinx.android.synthetic.main.cubecontro_fragment.*
-
-//var updateUI : CubePage? = null
 
 class CubeFragment: Fragment(){
 
@@ -51,18 +48,18 @@ class CubeFragment: Fragment(){
         controlBtn.setOnClickListener {
             val viberator = activity?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
             viberator.vibrate(40)
-//            mqtt.publish(topic = "control", message = "duc123,duc123,123,10,1")
-            if (errorRel.visibility == View.VISIBLE){
-                controlBtn.setText("重新連線")
-                controlBtn.background = resources.getDrawable(R.drawable.bg_round_button,null)
-            } else if (controlMainRel.visibility == View.VISIBLE){
-                controlBtn.setText("呼叫電梯")
-                if (floor != null){
-                    controlBtn.background = resources.getDrawable(R.drawable.bg_round_button,null)
-                } else{
-                    controlBtn.background = resources.getDrawable(R.drawable.bg_round_button_rest,null)
-                }
-            }
+            mqtt.publish(topic = "control", message = "duc123,duc123,123,10,1")
+//            if (errorRel.visibility == View.VISIBLE){
+//                controlBtn.setText("重新連線")
+//                controlBtn.background = resources.getDrawable(R.drawable.bg_round_button,null)
+//            } else if (controlMainRel.visibility == View.VISIBLE){
+//                controlBtn.setText("呼叫電梯")
+//                if (floor != null){
+//                    controlBtn.background = resources.getDrawable(R.drawable.bg_round_button,null)
+//                } else{
+//                    controlBtn.background = resources.getDrawable(R.drawable.bg_round_button_rest,null)
+//                }
+//            }
             dialog?.startCallingDialog()
             dialog?.successStatus()
         }
@@ -90,32 +87,27 @@ class CubeFragment: Fragment(){
         activity?.runOnUiThread {
             relative.removeAllViews() //更新前清除
 //            errorRel.removeAllViews()
-            ErrorPage(
-                relative = relative,
-                activity = activity,
-                resources = Resources.getSystem(),
-                context = context
-            )
+//            ErrorPage(
+//                relative = relative,
+//                activity = activity,
+//                resources = resources,
+//                context = context
+//            )
             CubePage(
                 relative = relative,
                 resources = resources,
                 context = context!!,
                 activity = activity!!
             )
-            if (floorArray.count() > 0){
-                controlMainRel.visibility = View.VISIBLE
-                errorRel.visibility = View.GONE
-            }
-            else{
-                controlMainRel.visibility = View.GONE
-                errorRel.visibility = View.VISIBLE
-            }
-            updateUI()
+//            if (floorArray.count() > 0){
+//                controlMainRel.visibility = View.VISIBLE
+//                errorRel.visibility = View.GONE
+//            }
+//            else{
+//                controlMainRel.visibility = View.GONE
+//                errorRel.visibility = View.VISIBLE
+//            }
+//            updateUI()
         }
     }
-
-//    @SuppressLint("ResourceType")
-//    fun controBtn(){
-//
-//    }
 }

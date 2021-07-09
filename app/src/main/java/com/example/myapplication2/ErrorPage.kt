@@ -46,8 +46,8 @@ class ErrorPage(private val relative: RelativeLayout, activity: FragmentActivity
         errorTitle.setTextSize(20f)
         errorTitle.measure(0,0)
         errorTitle.includeFontPadding = false
-        val typeface = Typeface.createFromAsset(context?.assets, "notnmm.otf")
-        errorTitle.setTypeface(typeface)
+//        val typeface = Typeface.createFromAsset(context?.assets, "notnmm.otf")
+//        errorTitle.setTypeface(typeface)
         val errorTitle_params = RelativeLayout.LayoutParams(
             ViewGroup.LayoutParams.MATCH_PARENT,
             ViewGroup.LayoutParams.WRAP_CONTENT)
@@ -60,7 +60,7 @@ class ErrorPage(private val relative: RelativeLayout, activity: FragmentActivity
         errorSubTitle.setText(R.string.errorSubTitle)
         errorSubTitle.setTextColor(resources.getColor(R.color.colorGray,null))
         errorSubTitle.setTextSize(15f)
-        errorSubTitle.setTypeface(typeface)
+//        errorSubTitle.setTypeface(typeface)
         errorSubTitle.measure(0,0)
         errorSubTitle.includeFontPadding = false
         val errorSubTitle_params = RelativeLayout.LayoutParams(subTitleW.toInt(), ViewGroup.LayoutParams.WRAP_CONTENT)
