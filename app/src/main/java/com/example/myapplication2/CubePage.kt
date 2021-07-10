@@ -17,8 +17,8 @@ import android.widget.ImageView
 import android.widget.RelativeLayout
 import org.eclipse.paho.android.service.BuildConfig
 
-var floorArray: ArrayList<String> =
-    arrayListOf()
+//var floorArray: ArrayList<String> = arrayListOf()
+var floorArray: ArrayList<String> = "1,2,3,4,5,6,7".toString().split(',') as ArrayList<String>
 
 var displaymetrics = DisplayMetrics()
 
@@ -121,7 +121,7 @@ class CubePage(private val relative:RelativeLayout,val resources: Resources,val 
             imgName = "icon_btn_floor_"+ floorArray[i].toLowerCase()+"_m"
         }
         var resID = resources.getIdentifier(imgName,"drawable",
-            BuildConfig.APPLICATION_ID
+            "com.example.myapplication2"
         )
         val floorImg = ImageView(context)
         floorImg.tag = floorArray[i]
