@@ -16,8 +16,8 @@ import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.RelativeLayout
 
-var floorArray: ArrayList<String> =
-    arrayListOf()
+var floorArray: ArrayList<String> = arrayListOf()
+//var floorArray: ArrayList<String> = "1,2,3,4,5,6,7".toString().split(',') as ArrayList<String>
 
 var displaymetrics = DisplayMetrics()
 
@@ -26,6 +26,7 @@ var vibrator: Vibrator? = null
 var floor: String? = null
 
 class CubePage(private val relative:RelativeLayout,val resources: Resources,val context: Context,val activity: Activity) {
+
 
     private var relID: Int = 0
 
@@ -150,6 +151,8 @@ class CubePage(private val relative:RelativeLayout,val resources: Resources,val 
                     it4 -> cubeStateOff(shadowV = it1, contentV = it2, innerV = it3, imgV = it4) } } } }
             cubeStateOn(shadowV = shadowV, contentV = contentV, innerV = innerV, imgV = imgV)
             this.shadowV = shadowV; this.contentV = contentV; this.innerV = innerV; this.imgV = imgV
+            // change control button status
+            cube.btnStatus(true)
         }
     }
 

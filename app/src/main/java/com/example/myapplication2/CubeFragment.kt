@@ -6,6 +6,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.os.Vibrator
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -45,7 +46,10 @@ class CubeFragment: Fragment(){
 
         //發送控制的監聽動作
         controlBtn.setOnClickListener {
-            mqtt.publish(topic = "control", message = "duc123,duc123,123,10,1")
+            mqtt.publish(topic = "control", message = "duc123,duc123,123,10," + floor)
+            btnStatus(false)
+            dialog?.startCallingDialog()
+            dialog?.successStatus()
         }
 
         //重新整理的監聽動作
@@ -77,5 +81,15 @@ class CubeFragment: Fragment(){
                 activity = activity!!
             )
         }
+    }
+
+    // change control button status
+    fun btnStatus(status: Boolean) {
+        controlBtn.isEnabled = status
+        controlBtn.isClickable = status
+        if (status)
+            controlBtn.setBackgroundResource(R.drawable.btn_corner_radius_on)
+        else
+            controlBtn.setBackgroundResource(R.drawable.btn_corner_radius_off)
     }
 }
