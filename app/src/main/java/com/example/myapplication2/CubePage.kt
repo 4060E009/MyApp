@@ -17,8 +17,7 @@ import android.widget.ImageView
 import android.widget.RelativeLayout
 import org.eclipse.paho.android.service.BuildConfig
 
-var floorArray: ArrayList<String> =
-    arrayListOf()
+var floorArray: ArrayList<String> = arrayListOf()
 
 var displaymetrics = DisplayMetrics()
 

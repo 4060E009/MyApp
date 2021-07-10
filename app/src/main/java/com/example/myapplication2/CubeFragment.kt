@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.res.Resources
 import android.os.Bundle
 import android.os.Vibrator
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -86,28 +87,29 @@ class CubeFragment: Fragment(){
         // 更新UI
         activity?.runOnUiThread {
             relative.removeAllViews() //更新前清除
-//            errorRel.removeAllViews()
-//            ErrorPage(
-//                relative = relative,
-//                activity = activity,
-//                resources = resources,
-//                context = context
-//            )
+            errorRel.removeAllViews()
+            ErrorPage(
+                relative = errorRel,
+                activity = activity!!,
+                resources = resources,
+                context = context!!
+            )
             CubePage(
                 relative = relative,
                 resources = resources,
                 context = context!!,
                 activity = activity!!
             )
-//            if (floorArray.count() > 0){
-//                controlMainRel.visibility = View.VISIBLE
-//                errorRel.visibility = View.GONE
-//            }
-//            else{
-//                controlMainRel.visibility = View.GONE
-//                errorRel.visibility = View.VISIBLE
-//            }
-//            updateUI()
+            if (floorArray.count() > 0){
+                relative.visibility = View.VISIBLE
+                errorRel.visibility = View.GONE
+                textView4.visibility = View.VISIBLE
+            }
+            else {
+                relative.visibility = View.GONE
+                errorRel.visibility = View.VISIBLE
+                textView4.visibility = View.GONE
+            }
         }
     }
 }
