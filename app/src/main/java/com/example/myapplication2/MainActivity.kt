@@ -27,6 +27,16 @@ class MainActivity : AppCompatActivity() {
         transaction.commitAllowingStateLoss()
         Runtime.getRuntime().gc()
         Runtime.getRuntime().freeMemory()
+
+        var data = ""
+        val api = httpAPI()
+        api.postAPI()
+
+        api.getUserMail('abc', '123', httpAPI.OnRequestListener {
+            override fun onsuccess(result: Any) {
+                data = result
+            }
+        })
     }
 }
 
